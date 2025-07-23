@@ -1,0 +1,22 @@
+7/23/25 (1):
+- Realized that if I want the arrays to match my physical intuition, I need to put y coord first, x second. I also need to start y at the top.
+- Actually, scratch that. Just accept that any outputted arrays are flipped 90 deg.
+    - Output print axes:    __________ y
+                           |
+                           | 
+                           |
+                           | 
+                           x 
+    - Just flip it 90 deg counterclockwise in ur brain
+    - Or, use coding. np.flip(np.swapaxes([arr], 0, 1), 0) will give you the result with x and y axes in place
+
+7/23/25 (2):
+- Got a lot of stuff in. Getting sensible results with a fairly mickey-mouse model
+- Haven't implemented viscosity yet, but trying a simple drag.
+- realized I forgot the advective term, lol. That's needed for turbulence.
+- Added simple vector plot
+- Calculating self-advection (advection of each vel. component by itself), not yet included in integral formula, waiting for cross-advection
+
+To do:
+- Get cross-advection (advection of one vel. component by another) calculating and included in integral formula(s)
+    - simple center diff? will it need a flux limiter?
