@@ -17,6 +17,22 @@
 - Added simple vector plot
 - Calculating self-advection (advection of each vel. component by itself), not yet included in integral formula, waiting for cross-advection
 
+7/24/25:
+- Realized my quiver plot was swapping x and y components of the velocities? I still don't know why.
+    - Using meshgrid (but not directly inputting the 1-D coord arrays) and switching the outputs appeared to fix the issue. Don't know why. Monitoring.
+- Implemented self-advection. Fine, but also 0 in this particular case. Makes sense, divergence = 0, should not expect steady states with net out or inflow.
+- Implemented cross-advection.
+    - It's working amazingly. Getting vortex results right away at low res.
+    - Sustained into higher res.
+    - Can I get multiple sustained vortices on screen?
+- Can run into Courant issues, but they seem really avoidable so far. The iterator will just divergence and hang in such a case.
+    - Developed a triage system for this for now, could use some refining.
+- Got a case where it's very badly behaved using random P bnd conds
+    - definitely was running into some issues with my iteration tolerance. Taking the max of the numerator and denominator indiidually was not the way, switched to taking the max of the fraction (interdiff/totaldiff
+    - having fixed that, Courant is more of an issue. I do have some guns to throw at that problem though!
+    - this issue with ultra high cross-vels emerging at only one side must have its own source though?
+        - stumped for now. Try using 0 grad at bnd in xdivc? and ydivc?
+
 To do:
 - Get cross-advection (advection of one vel. component by another) calculating and included in integral formula(s)
     - simple center diff? will it need a flux limiter?
