@@ -33,6 +33,19 @@
     - this issue with ultra high cross-vels emerging at only one side must have its own source though?
         - stumped for now. Try using 0 grad at bnd in xdivc? and ydivc?
 
+7/25/25:
+- Got a case where the large arrows occured at the other side of the square before the "breakdown". That narrows down the possible causes
+- Making movies with a consistent arrow scale.
+    - Now noticing a real increase in magnitude leading up to the breakdown
+- had forgotten to sqrt the velcoity magnitude (mag_c) in DragForces. fixed.
+    - now requiring far higher C_D's
+- I'm still observing those edge currents, but more limitedly. I'm not convinced I need to focus on them.
+- Another observation: I am starting with du/dx = dv/dy = 0. It is staying that way, permanently.
+    - Tried adding a small balancing du/dx and dv/dy at bottom right corner. Remained fully unaltered thru simulation, propagated to end.
+    - So, this is strange... dDdt is happy just... being 0. Always.
+    - try adding a vortex loop anywhere else and see what happens?
+
 To do:
-- Get cross-advection (advection of one vel. component by another) calculating and included in integral formula(s)
-    - simple center diff? will it need a flux limiter?
+
+Thoughts:
+- might the cross-advection ever need something like a flux limiter for num. stability?
