@@ -42,8 +42,8 @@
 - I'm still observing those edge currents, but more limitedly. I'm not convinced I need to focus on them.
 - Another observation: I am starting with du/dx = dv/dy = 0. It is staying that way, permanently.
     - Tried adding a small balancing du/dx and dv/dy at bottom right corner. Remained fully unaltered thru simulation, propagated to end.
+        - same thing with a 4-face vortex loop added at any point.
     - So, this is strange... dDdt is happy just... being 0. Always.
-    - try adding a vortex loop anywhere else and see what happens?
 
 To do:
 
