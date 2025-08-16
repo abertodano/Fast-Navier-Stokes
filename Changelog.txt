@@ -46,6 +46,13 @@
     - So, this is strange... dDdt is happy just... being 0. Always.
 - Meanwhile, adding a vortex to the initial guess of dudt and dvdt just results in a hang. An "error" (iterdiff) gets traded back and forth between dudt and dvdt without decreasing
 
+8/13:
+- Trying with adding in curl equations.
+- Fixed a bug with curl: d/dx v - d/dy u, not d/dy u - d/dx v
+- tested two things:
+    - *0.5 vs. /2. no noticeable difference
+    - identifying edge nodes by [-1] as opposed to [N-1]. no noticeable difference.
+
 To do:
 
 Thoughts:
